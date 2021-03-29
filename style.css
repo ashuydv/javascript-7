@@ -1,0 +1,272 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+ :root {
+    --pomodoro: lightblue;
+    --shortBreak: lightcoral;
+    --longBreak: #ffa64d;
+}
+
+body {
+    background-color: var(--pomodoro);
+    transition: background-color 1s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    user-select: none;
+}
+
+progress {
+    border-radius: 2px;
+    width: 100%;
+    height: 12px;
+    position: fixed;
+    top: 0;
+}
+
+progress::-webkit-progress-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+progress::-webkit-progress-value {
+    background-color: #fff;
+}
+
+.timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+}
+
+.clock {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 15rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-family: arial, sans-serif;
+}
+
+.mode-button {
+    font-size: 1rem;
+    height: 28px;
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: 300;
+    color: #fff;
+    border: 1px solid transparent;
+    margin: 0px;
+    border-radius: 4px;
+    padding: 2px 12px;
+    background: none;
+}
+
+.mode-button.active {
+    border-color: #fff;
+    border: 1px solid;
+}
+
+.main-button {
+    cursor: pointer;
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    font-size: 22px;
+    height: 55px;
+    text-transform: uppercase;
+    color: hsl(175, 26%, 41%);
+    font-weight: bold;
+    width: 200px;
+    background-color: white;
+    border-width: initial;
+    border-style: none;
+    margin: 20px 0px 0px;
+    padding: 0px 12px;
+    border-radius: 4px;
+    transition: color 0.5s ease-in-out 0s;
+}
+
+.button-groups {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+button:focus,
+button:active {
+    outline: none;
+}
+
+.main-button.active {
+    transform: translateY(6px);
+    box-shadow: none;
+    outline: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*  to do app  */
+
+.toDo {
+    right: 10rem;
+    position: absolute;
+    top: 50rem;
+    width: 80%;
+    margin: auto;
+    left: 10rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Style the list items */
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.2s;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Set all odd list items to a different color (zebra-stripes) */
+
+ul li:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+
+/* Darker background-color on hover */
+
+ul li:hover {
+    background: #ddd;
+}
+
+.toDo h2 {
+    margin-bottom: 1rem!important;
+}
+
+
+/* When clicked on, add a background color and strike out text */
+
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+
+/* Add a "checked" mark when clicked on */
+
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+
+/* Style the close button */
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+
+/* Style the header */
+
+.header {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+    border-radius: 2rem 2rem 0rem 0rem;
+}
+
+
+/* Clear floats after the header */
+
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Style the input */
+
+input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    height: 40px;
+}
+
+
+/* Style the "Add" button */
+
+.addBtn {
+    padding: 10px;
+    width: 10%;
+    background: coral;
+    color: #fff;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+@media screen and (max-width: 550px) {
+    .clock {
+        font-size: 8rem;
+    }
+}
